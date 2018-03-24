@@ -43,7 +43,7 @@ def plotsun( home , plotdate , linecolour , label ):
     sunephem.lat = home.lat
     sunephem.long = home.long
     sunephem.date = ephem.Date( plotdate.tuple()[0:3] )
-    for i in range(24*4): # compute position for every 15 minutes
+    for i in range(24*4+1): # compute position for every 15 minutes
         sun.compute( sunephem )
         posx.append( hemisphere( deg(sun.az))  )
         posy.append(deg(sun.alt))
@@ -196,5 +196,10 @@ plt.xlabel( "{} \n {}".format( xlabeline1 , xlabeline2 ) )
 plt.rc('xtick', labelsize=10) 
 plt.rc('ytick', labelsize=10) 
 plt.grid(b=True)
-plt.show()
+plt.tight_layout()
+
+if debug > 0:
+    plt.show()
+
+plt.savefig('sunpos.png' , facecolor=fig.get_facecolor() )
     
