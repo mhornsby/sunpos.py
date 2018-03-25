@@ -159,6 +159,9 @@ plotsun( home ,  ephem.next_summer_solstice( home.date ) , 'cyan' , "Dec 21")
 # plot the Winter Solstice
 plotsun( home , ephem.next_winter_solstice( home.date ) , 'magenta' , "June 21")
 
+# plot the Equinox
+plotsun( home , ephem.next_equinox( home.date ) , 'yellow' , "Equinox")
+
 # add the sun image to the plot
 sunimage = read_png('sun.png')
 imagebox = OffsetImage(sunimage , zoom=.1)
